@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1712075524 "/home/dotm87/Documentos/Universidad/TSO/tso-semaphores-and-monitors/informe/TSO - Monitor de Procesos.tex" "TSO - Monitor de Procesos.pdf" "TSO - Monitor de Procesos" 1712075524 0
+["pdflatex"] 1712075954 "/home/dotm87/Documentos/Universidad/TSO/tso-semaphores-and-monitors/informe/TSO - Sincronozación y Comunicación de Procesos.tex" "TSO - Sincronozación y Comunicación de Procesos.pdf" "TSO - Sincronozación y Comunicación de Procesos" 1712075954 0
   "/etc/texmf/web2c/texmf.cnf" 1710261679 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/dotm87/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1710261732 14040 23f0945bf631fcc8399c2e6ecf5867e9 ""
-  "/home/dotm87/Documentos/Universidad/TSO/tso-semaphores-and-monitors/informe/TSO - Monitor de Procesos.tex" 1712075524 1782 641cdb91e8e81e9c53eac8c31bff78d9 ""
+  "/home/dotm87/Documentos/Universidad/TSO/tso-semaphores-and-monitors/informe/TSO - Sincronozación y Comunicación de Procesos.tex" 1712075524 1782 641cdb91e8e81e9c53eac8c31bff78d9 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -42,10 +42,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1681034085 39561 34c98e380bf7c7201ee6a7909aff625a ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1710261688 165012 f177baa1c39a3ebd62c3096a43521a0d ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1711463678 6526260 f95d4e4d49bdb6f13b2ff05441e07eb5 ""
-  "TSO - Monitor de Procesos.aux" 1712075524 32 ab05033ccbb38b00a31b200ccedf8001 "pdflatex"
-  "TSO - Monitor de Procesos.tex" 1712075524 1782 641cdb91e8e81e9c53eac8c31bff78d9 ""
+  "TSO - Sincronozación y Comunicación de Procesos.aux" 1712075954 32 ab05033ccbb38b00a31b200ccedf8001 "pdflatex"
+  "TSO - Sincronozación y Comunicación de Procesos.tex" 1712075524 1782 641cdb91e8e81e9c53eac8c31bff78d9 ""
   (generated)
-  "TSO - Monitor de Procesos.aux"
-  "TSO - Monitor de Procesos.log"
-  "TSO - Monitor de Procesos.pdf"
+  "TSO - Sincronozación y Comunicación de Procesos.aux"
+  "TSO - Sincronozación y Comunicación de Procesos.log"
+  "TSO - Sincronozación y Comunicación de Procesos.pdf"
   (rewritten before read)
