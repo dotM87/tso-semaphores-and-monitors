@@ -1,0 +1,4 @@
+#include "gdefs.cm"
+monitor Robot{
+    int piezasNecesarias;
+}
