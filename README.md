@@ -1,1 +1,1 @@
-# tso-semaphores-monitors-and-message-passing
+# tso-semaphores-monitors
