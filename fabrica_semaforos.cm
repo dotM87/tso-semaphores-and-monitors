@@ -1,0 +1,60 @@
+int cantPiezasA = 0;
+int cantPiezasB = 0;
+int cantPiezasC = 0;
+int maxProduccionPiezas = 2;
+int capacidadAlmacen = 4;
+semaphore A = 1;
+semaphore B = 1;
+semaphore C = 0;
+semaphore almacen = 4;
+
+void robotA (int ID){
+    while (cantPiezasA <= maxProduccionPiezas){
+        wait(almacen);
+        cantPiezasA++;
+        cout << "Robot A." << ID << "produjo una pieza" << endl;
+        if (cantPiezasA < maxProduccionPiezas){
+            signal(A);
+        }else if ((cantPiezasA == maxProduccionPiezas) && (cantPiezasB == maxProduccionPiezas)){
+            signal(C);
+        }
+        cout << "... En el almacen hay " << cantPiezasA << " piezas A" << endl;
+        wait(A);
+    }
+}
+
+void robotB (int ID){
+    while (cantPiezasB <= maxProduccionPiezas){
+        wait(almacen);
+        cantPiezasB++;
+        cout << "Robot B." << ID << "produjo una pieza" << endl;
+        if (cantPiezasB < maxProduccionPiezas){
+            signal(B);
+        }else if ((cantPiezasB == maxProduccionPiezas) && (cantPiezasB == maxProduccionPiezas)){
+            signal(C);
+        }
+        cout << "... En el almacen hay " << cantPiezasB << " piezas A" << endl;
+        wait(B);
+    }
+}
+
+void robotC (int ID){
+    while (capacidadAlmacen <= cantPiezasC){
+        wait (C);
+        cantPiezasC++;
+        cout << "Robot C." << ID << "consume" << cantPiezasA << "piezas A y" << cantPiezasB << "piezas B" << endl;
+        cantPiezasA = cantPiezasA - maxProduccionPiezas;
+        cantPiezasB = cantPiezasB - maxProduccionPiezas;
+        cout << "... hay " << cantPiezasC << " piezas C" << endl;
+        signal(A);
+        signal(B);
+    }
+}
+
+void main(){
+    cobegin{
+        robotA(1);
+        robotB(1);
+        robotC(1);
+    }
+}
