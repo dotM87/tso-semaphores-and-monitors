@@ -1,0 +1,124 @@
+#include "gdefs.cm"
+int BODYA = 10; 
+int PZA1 = 15;
+int PZA2 = 16;
+int BODYB = 20;
+int PZB1 = 25;
+int PZB2 = 26;
+int BODYC = 30;
+int PZC = 300;
+	
+int xc = 0; 
+int yc = 0; 
+
+monitor plataforma {
+	condition ab; 
+	int na; 
+	int nb; 
+
+	void crearA(){
+	if(na <2 ){
+		na++; 
+		cout<< "robotA, produce una pieza a, cantidad: "<< na << endl; 
+		waitc(ab);
+		}
+	if(na== 1)
+	{
+	makevisible(PZA1,1); 
+	}	
+		if (na ==2){
+			signalc(ab);
+			makevisible(PZA2,1);
+			cout<< "robot A ya no puede producir mas piezas ya produjo 2"<< endl;
+	}
+		
+	}
+	
+	void crearB()
+	{
+		if(nb< 2)
+		{
+		nb++;
+		cout<< "robot B , produce una pieza b; cantidad: "<< nb<< endl;
+		waitc(ab);
+		}	
+		if(na== 1)
+		{
+		makevisible(PZB1,1); 
+		}	
+		if (nb ==2){ 
+			signalc(ab);
+			cout<< "robot B ya no puede producir mas piezas ya produjo 2"<< endl;
+			makevisible(PZB2,1); 
+		}}
+	void crearC()
+	{	
+		
+		if((na == 2) && (nb == 2))
+		{
+			cout << "robot C , produce una pieza c" << endl; 
+			na = 0; 
+			nb= 0;
+			makevisible(PZC, 1)
+			cout << "...........almacen esta vacio otra vez.........."; 
+			makevisible(PZA1,0);
+			makevisible(PZA2,0);
+			makevisible(PZB1,0);
+			makevisible(PZB2,0);
+			cout << endl;
+			signalc(ab);
+
+			
+		}else { 
+		cout<< "robot C no cuenta con piezas suficientes" << endl; 
+			signalc(ab);
+			makevisible(PZC, 0);
+		}
+	}
+	
+	
+
+	init {
+		na = 0; 
+		nb= 0; 
+	}
+}
+	void robotA()
+		{
+		create(BODYA,CIRCLE,GREEN, 50,100,70,70);
+		create(PZA1,CIRCLE,BLUE, 140,145,25,25);
+		create(PZA2,CIRCLE,BLUE,140,110,25,25);
+		
+		makevisible(PZA1,0);
+		makevisible(PZA2,0);
+		while(1){
+			crearA();
+		}
+		}
+	void robotB()
+		{
+		create(BODYB,CIRCLE,MAGENTA, 50,300,70,70);
+		create(PZB1,CIRCLE,RED, 140,345,25,25);
+		create(PZB2,CIRCLE,RED,140,310,25,25);
+		
+		makevisible(PZB1,0);
+		makevisible(PZB2,0);
+		while(1){
+			crearB();
+		}
+	}	
+	void robotC()
+		{
+		create(BODYC,TRIANGLE,BLACK, 270,200,70,70);
+		create(PZC,CIRCLE,YELLOW, 310, 230, 30, 30);
+		makevisible(PZC,0);
+		while(1){
+			crearC();
+		}
+		}
+	void main()
+	{
+		cobegin{
+			robotA(); robotB(); robotC();
+		}		
+	}

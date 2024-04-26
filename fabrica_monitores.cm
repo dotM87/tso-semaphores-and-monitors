@@ -1,4 +1,71 @@
-#include "gdefs.cm"
-monitor Robot{
-    int piezasNecesarias;
+monitor plataforma 
+{
+	condition ab; 
+	int na; 
+	int nb; 
+	void crearA()
+	{
+		if(na <2 ){
+		na++; 
+		cout<< "robotA, produce una pieza a, cantidad: "<< na << endl; 
+		waitc(ab);
+		}
+		if (na ==2){
+			signalc(ab);
+			cout<< "robot A ya no puede producir mas piezas ya produjo 2"<< endl;
+		}
+		
+		
+		
+		
+	}
+	void crearB() {
+		if(nb< 2)
+		{
+		nb++;
+		cout<< "robot B , produce una pieza b; cantidad: "<< nb<< endl;
+		waitc(ab);
+		}	
+		if (nb ==2){ 
+			signalc(ab);
+			cout<< "robot B ya no puede producir mas piezas ya produjo 2"<< endl;
+			
+		}
+		
+		
+	
+	}
+	void crearC()
+	{	
+		
+		if((na == 2) && (nb == 2))
+		{
+			cout << "robot C , produce una pieza c" << endl; 
+			na = 0; 
+			nb = 0; 
+			cout << "...........almacen esta vacio otra vez.........."; 
+			cout << endl;
+			signalc(ab); 
+			
+		}else { 
+		cout<< "robot C no cuenta con piezas suficientes" << endl; 
+			signalc(ab);
+		}
+	}
+	init {
+	na = 0; 
+	nb = 0; 
+	
+	} //fin monitor
 }
+	void robotA() {while(1) {crearA();}}
+	void robotB() {while(1){crearB();}}
+	void robotC() {while(1){crearC();}}
+
+	void main ()
+	{
+		cobegin{
+			  robotA(); robotB(); robotC();
+		
+		}
+	}
